@@ -9,7 +9,8 @@ var clientOptions = {
     },
 	identity: identity,
     channels: ['nurelic']
-}
+};
+
 var client = new irc.client(clientOptions);
 
 client.connect();

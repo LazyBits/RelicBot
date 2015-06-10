@@ -1,4 +1,4 @@
 {
-        "username" : "",
-        "password" : ""
+        "username" : "username",
+        "password" : "OAuth token from: http://www.twitchapps.com/tmi/ including the oauth:"
 }
