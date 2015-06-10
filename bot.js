@@ -1,13 +1,13 @@
 var irc = require('twitch-irc');
 
+var fs = require('fs');
+var identity = JSON.parse(fs.readFileSync('./identity.json', 'utf8'));
+
 var clientOptions = {
     options: {
         debug: true
     },
-	identity: {
-        username: 't3kk',
-        password: ''//Oauth key goes here
-    },
+	identity: identity,
     channels: ['nurelic']
 }
 var client = new irc.client(clientOptions);
