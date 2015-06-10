@@ -1,7 +1,7 @@
 var irc = require('twitch-irc');
 
 var fs = require('fs');
-var identity = JSON.parse(fs.readFileSync('./identity.json', 'utf8'));
+var identity = JSON.parse(fs.readFileSync('./configs/identity.json', 'utf8'));
 
 var clientOptions = {
     options: {
