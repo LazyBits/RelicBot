@@ -8,13 +8,21 @@ var clientOptions = {
         debug: true
     },
 	identity: identity,
-    channels: ['nurelic']
+    channels: ['t3kk']
 };
 
-var client = new irc.client(clientOptions);
+var twitch_client = new irc.client(clientOptions);
 
-client.connect();
+twitch_client.connect();
 
-client.addListener('chat', function (channel, user, message) {
+console.log("STUFF");
+
+var scheduled_notices = require('./libs/scheduled_notices');
+
+//scheduled_notices.sub_reminder(twitch_client, 't3kk', 10);
+
+twitch_client.addListener('chat', function (channel, user, message) {
     console.log(user.username + ': ' + message);
+    twitch_client.action(channel, "WEE");
+    //chatHandler(twitch_client, channel, user, message)
 });
