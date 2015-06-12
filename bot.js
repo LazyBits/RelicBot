@@ -5,7 +5,13 @@ var identity = JSON.parse(fs.readFileSync('./configs/identity.json', 'utf8'));
 
 var clientOptions = {
     options: {
-        debug: true
+        debug: true,
+        debugDetails: true,
+        dev: true
+    },
+    logging: {
+        enabled: true,
+        rewrite: true
     },
 	identity: identity,
     channels: ['t3kk']
@@ -18,11 +24,12 @@ twitch_client.connect();
 console.log("STUFF");
 
 var scheduled_notices = require('./libs/scheduled_notices');
+var chat_funtions = require('./libs/chat_functions');
 
-//scheduled_notices.sub_reminder(twitch_client, 't3kk', 10);
+//Reminds people to follow every 20 minutes
+scheduled_notices.follow_reminder(twitch_client, 't3kk', '0 0,20,40 * * * *');
 
 twitch_client.addListener('chat', function (channel, user, message) {
-    console.log(user.username + ': ' + message);
-    twitch_client.action(channel, "WEE");
-    //chatHandler(twitch_client, channel, user, message)
+    console.log(user.username + '***: ' + message);
+    chat_funtions(twitch_client, channel, user, message);
 });
