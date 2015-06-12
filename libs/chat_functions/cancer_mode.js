@@ -24,8 +24,8 @@ module.exports = function (twitch_client, channel, user, message) {
 	
 	console.log("taboo Triggered");
 	if (message.toLowerCase().indexOf("taboo") > -1) {
-		console.log("attempting to timeout "+ user.username + "for message: "+ message);
-		twitch_client.timeout(channel, user, 300);
+		console.log("attempting to timeout "+ user.username + " for message: "+ message+ "in channel "+channel);
+		twitch_client.timeout(channel, user.username, 300);
 	}
 };
 
