@@ -1,17 +1,32 @@
-module.exports = function(twitch_client) {
-	twitch_client.addListener('chat', function (channel, user, message) {
-//		if (message.toLowerCase() === '!cancer' && user.special.indexOf('mod') >= 0) {
-			console.log("tabooSet");
-			console.log('mod: '+ (user.special.indexOf('mod') >= 0));
-			//Stop adding listeners fool!  Manage a list of channels cancer is enabled on
-			twitch_client.addListener('chat', function (channel, user, message) {
-				twitch_client.action(channel, "HEY");
-				console.log("taboo Triggered");
-				if (message.toLowerCase().indexOf("taboo") > -1) {
-					twitch_client.timeout(channel, user, 300);
-				}
-			});
-			
-//		}
-	});
+module.exports = function (twitch_client, channel, user, message) {
+	console.log("tabooSet");
+	//TOGGLE FOR NOW
+	if ((user.special.indexOf('mod') >= 0) && message==='!cancer'){
+		var turn_on = true;
+		enabled_channels.forEach(function (enabled_channel){
+			if (enabled_channel===channel){
+				turn_on = false;
+			}
+		});
+		
+		//Add the channel to the array
+		if(turn_on){
+			enabled_channels.push(channel);
+		}
+		//remove it form the array
+		else{
+			var index = enabled_channels.indexOf(channel);
+			if (index > -1){
+				enabled_channels.splice(index,1);
+			}
+		}
+	}
+	
+	console.log("taboo Triggered");
+	if (message.toLowerCase().indexOf("taboo") > -1) {
+		console.log("attempting to timeout "+ user.username + "for message: "+ message);
+		twitch_client.timeout(channel, user, 300);
+	}
 };
+
+var enabled_channels = [];
