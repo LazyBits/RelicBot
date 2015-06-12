@@ -21,7 +21,7 @@ module.exports = function (twitch_client, channel, user, message) {
 			}
 		}
 		console.log("HEY");
-		console.log("taboo list "+ enabled_channels);
+		console.log("taboo list " + enabled_channels);
 	}
 
 	enabled_channels.forEach(function (enabled_channel) {
