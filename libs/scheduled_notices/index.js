@@ -1,1 +1,1 @@
-exports.sub_reminder = require('./sub_reminder.js');
+exports.follow_reminder = require('./follow_reminder.js');
