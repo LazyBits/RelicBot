@@ -14,7 +14,7 @@ var clientOptions = {
         rewrite: true
     },
 	identity: identity,
-    channels: ['t3kk']
+    channels: ['DarlesBarkley']
 };
 
 var twitch_client = new irc.client(clientOptions);
