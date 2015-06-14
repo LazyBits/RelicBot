@@ -12,5 +12,9 @@
 			"trigger": "!fb",
 			"action": "Like NuRelic on facebook @ www.facebook.com/NuRelicTwitch"
 		}
+	],
+	"channels" : [
+		"t3kk",
+		"DarlesBarkley"
 	]
 }

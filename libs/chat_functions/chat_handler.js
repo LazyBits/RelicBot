@@ -17,10 +17,10 @@ function addCommand(newCommand, commandResult) {
 //Load commands from JSON
 function loadCommands(filePath){
 	var fs = require('fs');
-	var commandsJSON = JSON.parse(fs.readFileSync(filePath, 'utf8'))
-	commandsJSON.commands.forEach(function(command){
+	var commandsJSON = JSON.parse(fs.readFileSync(filePath, 'utf8')).commands;
+	commandsJSON.forEach(function(command){
 		addCommand(command['trigger'], command['action']);
 	});
 }
 
-loadCommands('./configs/commands.json');
+loadCommands('./configs/config.json');

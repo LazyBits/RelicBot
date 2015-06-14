@@ -2,6 +2,8 @@ var irc = require('twitch-irc');
 
 var fs = require('fs');
 var identity = JSON.parse(fs.readFileSync('./configs/identity.json', 'utf8'));
+var config = JSON.parse(fs.readFileSync('./configs/config.json', 'utf8'));
+var channels = config.channels;
 
 var clientOptions = {
     options: {
@@ -14,7 +16,7 @@ var clientOptions = {
         rewrite: true
     },
 	identity: identity,
-    channels: ['t3kk']
+    channels: channels
 };
 
 var twitch_client = new irc.client(clientOptions);
