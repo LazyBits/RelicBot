@@ -1,18 +1,26 @@
-module.exports = function(twitch_client, channel, user, message){
-		console.log("count "+ count);
-		count = count+1;
-		var commands = {};
-		addCommand(commands, '!twitter', 'Follow NuRelic on twitter @ https://twitter.com/NuRelic21');
-		addCommand(commands, '!yt', 'Check out previous and/or different content from NuRelic on youtube @ http://tinyurl.com/o26k66u');
-		addCommand(commands, '!fb', 'Like NuRelic on facebook @ www.facebook.com/NuRelicTwitch');
+module.exports = function(twitch_client, channel, user, message){		
 		if(message in commands)
 		{
 			console.log('Running command ' + message)
+			//Rigth now action is only a say commmand, maybe we shoudl expand this.
 			twitch_client.say(channel, commands[message]);
 		}
 };
 
-var count = 0;
-var addCommand = function(commandMap, newCommand, commandResult) {
-	commandMap[newCommand] = commandResult;
+//Define commands here so that it will exist after the main function finishes.  This way we will only load commands once.
+var commands = {};
+
+function addCommand(newCommand, commandResult) {
+	commands[newCommand] = commandResult;
 }
+
+//Load commands from JSON
+function loadCommands(filePath){
+	var fs = require('fs');
+	var commandsJSON = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+	commandsJSON.commands.forEach(function(command){
+		addCommand(command['trigger'], command['action']);
+	});
+}
+
+loadCommands('./configs/commands.json');

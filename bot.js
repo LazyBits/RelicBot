@@ -14,7 +14,7 @@ var clientOptions = {
         rewrite: true
     },
 	identity: identity,
-    channels: ['DarlesBarkley']
+    channels: ['t3kk']
 };
 
 var twitch_client = new irc.client(clientOptions);
@@ -30,6 +30,5 @@ var chat_funtions = require('./libs/chat_functions');
 scheduled_notices.follow_reminder(twitch_client, 't3kk', '0 0,20,40 * * * *');
 
 twitch_client.addListener('chat', function (channel, user, message) {
-    console.log(user.username + '***: ' + message);
     chat_funtions(twitch_client, channel, user, message);
 });

@@ -7,3 +7,5 @@ module.exports = function (twitch_client, channel, cron_time) {
 	// Start it in 3 seconds..
 	cronJob.start();
 };
+
+//TODO: Alter this to load form JSON like chat_handler
