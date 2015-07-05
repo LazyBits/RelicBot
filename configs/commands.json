@@ -1,0 +1,16 @@
+{
+"commands": [
+{
+"trigger": "!twitter",
+"action": "Follow NuRelic on twitter @ https://twitter.com/NuRelic21"
+},
+{
+"trigger": "!yt",
+"action": "Check out previous and/or different content from NuRelic on youtube @ http://tinyurl.com/o26k66u"
+},
+{
+"trigger": "!fb",
+"action": "Like NuRelic on facebook @ www.facebook.com/NuRelicTwitch"
+},
+]
+}
