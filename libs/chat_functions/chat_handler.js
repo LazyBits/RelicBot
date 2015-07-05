@@ -1,4 +1,4 @@
-module.exports = function(twitch_client, channel, user, message){		
+module.exports = function(twitch_client, channel, user, message){
 		if(message in commands)
 		{
 			console.log('Running command ' + message)
@@ -12,6 +12,15 @@ var commands = {};
 
 function addCommand(newCommand, commandResult) {
 	commands[newCommand] = commandResult;
+	var fs = require('fs');
+	fs.writeFileSync('./configs/commands.json', '{\n"commands": [\n');
+	for(var saveCommand in commands)
+	{
+		var writeCommand = '{\n"trigger": "' + saveCommand + '",\n' + '"action": "' + commands[saveCommand] + '"\n},\n';
+		console.log('Writing Command' + writeCommand);
+		fs.appendFileSync('./configs/commands.json', writeCommand);
+	}
+	fs.appendFileSync('./configs/commands.json', "]\n}");
 }
 
 //Load commands from JSON
