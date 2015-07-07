@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "twitch-irc": "^1.2.7"
+    "tmi.js": "0.0.15"
   },
   "devDependencies": {},
   "scripts": {

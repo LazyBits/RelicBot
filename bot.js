@@ -1,4 +1,4 @@
-var irc = require('twitch-irc');
+var irc = require('tmi.js');
 
 var fs = require('fs');
 var identity = JSON.parse(fs.readFileSync('./configs/identity.json', 'utf8'));
