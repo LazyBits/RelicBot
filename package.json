@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "tmi.js": "0.0.15"
+    "tmi.js": "^0.0.22"
   },
   "devDependencies": {},
   "scripts": {
