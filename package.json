@@ -4,11 +4,16 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+<<<<<<< HEAD
     "tmi.js": "^0.0.22",
     "twitch-irc": "~1.2.7"
   },
   "devDependencies": {
     "fly": "~0.8.3"
+=======
+    "irc": "^0.3.12",
+    "tmi.js": "^0.0.22"
+>>>>>>> 6d94e1d4b5e95657caa814bf855bd817c1c0273e
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
