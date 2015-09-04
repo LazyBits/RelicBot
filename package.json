@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "tmi.js": "^0.0.22",
-    "irc": "^0.3.12",
-    "twitch-irc": "~1.2.7",
     "express": "^4.10.6",
-    "mysql": "^2.5.4"
+    "irc": "^0.3.12",
+    "mysql": "^2.5.4",
+    "request": "^2.61.0",
+    "tmi.js": "^0.0.22",
+    "twitch-irc": "~1.2.7"
   },
   "devDependencies": {
     "irc": "^0.3.12",
