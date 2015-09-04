@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "tmi.js": "^0.0.22"
+    "tmi.js": "^0.0.22",
+    "twitch-irc": "~1.2.7"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "fly": "~0.8.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
