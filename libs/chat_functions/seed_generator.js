@@ -3,6 +3,22 @@
 module.exports = function (twitch_client, channel, user, message) {	
 	var arr = message.match(/!seedGen(.*)/);
 	if (arr != null) { // Did it match?
+		var mysql      = require('mysql');
+		var connection = mysql.createConnection({
+			host     : '127.0.0.1',
+			user     : 'root',
+			password : '',
+			database : 'twitch_bot'
+		});
+
+		connection.connect();
+
+		connection.query('SELECT * from 8ball;', function(err, rows, fields) {
+		if (!err)
+			console.log('The solution is: ', rows);
+		else
+			console.log('Error while performing Query. ' +err );
+		});
 		var message = "";
 		if ("#"+user.username == channel) {		
 		//if (user.username in twitch_client.mods(channel)) {
@@ -20,6 +36,9 @@ module.exports = function (twitch_client, channel, user, message) {
 			{
 				message = "Error: you need to add a username at the end of the command "+user.username;
 			}
+
+
+			connection.end();
 			twitch_client.say(channel, message);
 		}		
 	}	

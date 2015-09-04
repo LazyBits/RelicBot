@@ -5,10 +5,12 @@
   "main": "index.js",
   "dependencies": {
     "tmi.js": "^0.0.22",
-    "twitch-irc": "~1.2.7"
+    "irc": "^0.3.12",
+    "twitch-irc": "~1.2.7",
+    "express": "^4.10.6",
+    "mysql": "^2.5.4"
   },
   "devDependencies": {
-    "fly": "~0.8.3",
     "irc": "^0.3.12",
     "tmi.js": "^0.0.22"
   },
