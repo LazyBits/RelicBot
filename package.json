@@ -12,8 +12,6 @@
     "twitch-irc": "~1.2.7"
   },
   "devDependencies": {
-    "irc": "^0.3.12",
-    "tmi.js": "^0.0.22"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
